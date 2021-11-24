@@ -49,6 +49,7 @@ cp -r /tmp/book /tmp/image /root # 同时复制多个目录或文件。把tmp目
 rm /tmp/abc.txt # 删除tmp目录下的abc.txt文件
 rm -r /tmp/movie # 删除目录加一个-r，删除tmp目录下的movie目录
 rm `ls | grep -v "xgb"` # 除了含有xgb字段的文件，删除其余文件，注意是反引号
+find . name '*.model' -exec rm {} \;  # 删除结尾为.mode的所有文件，可以先find . name '*.model'出文件看是否正确再删除
 # 创建目录
 mkdir /tmp/movie # 在tmp目录下创建一个名为movie的目录，其中 /tmp/ 是路径，movie 是你自己起的目录名
 mkdir -p /tmp/book/programming # 创建一个多级目录，即使book目录原本不存在，也可以创建成功
@@ -318,6 +319,8 @@ i #键入模式
 gg dG #全选删除
 gg #移动到档案的第一行
 G  #移动到档案的最后一行
+u  #撤销上一步操作
+ctrl+R  # 恢复上一步撤销的操作
 ```
 
 添加/删除注释
@@ -346,13 +349,13 @@ from IPython.lib import passwd
 # if 'IP' in os.environ:
 #   mixinIP = os.environ['IP']
 # c.ConnectionFileMixin.ip = mixinIP
-c.NotebookApp.ip = '10.186.4.36'
-c.NotebookApp.port = int(os.getenv('JUPYTER_PORT', 8048))
+c.NotebookApp.ip = '填入ip地址'
+c.NotebookApp.port = int(os.getenv('JUPYTER_PORT', 填入端口号))
 c.NotebookApp.open_browser = False
 c.MultiKernelManager.default_kernel_name = 'python3'
 
 # set a password if PAS is set in the environment
-pw = '96338522456klm'
+pw = '填入密码'
 if 'PASS' in os.environ:
   pw = os.environ['PASS']
 c.NotebookApp.password = passwd(pw)
