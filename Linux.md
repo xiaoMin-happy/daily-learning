@@ -156,6 +156,9 @@ echo $SHELL
 
 # 执行脚本，脚本最后可以添加这一句，表示脚本运行完成
 echo "The script is finished"
+
+# 打印
+echo "${脚本的参数}"
 ```
 
 光标移动快捷键
